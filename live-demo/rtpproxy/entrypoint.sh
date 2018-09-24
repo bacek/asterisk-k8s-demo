@@ -1,4 +1,6 @@
 #!/bin/sh
+set -x
+
 : ${CLOUD=""} # One of aws, azure, do, gcp, or empty
 if [ "$CLOUD" != "" ]; then
    PROVIDER="-provider ${CLOUD}"
