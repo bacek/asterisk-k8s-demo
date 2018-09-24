@@ -9,7 +9,7 @@ fi
 : ${PRIVATE_IPV4="$(netdiscover -field privatev4 ${PROVIDER})"}
 : ${PUBLIC_IPV4="$(netdiscover -field publicv4 ${PROVIDER})"}
 
-: ${RTPPROXY_ARGS:="-f -A ${PUBLIC_IPV4}/${PRIVATE_IPV4} -F -l ${PRIVATE_IPV4}/${PRIVATE_IPV4} -m 20000 -M 30000 -s udp:127.0.0.1:7722 -d DBUG"}
+: ${RTPPROXY_ARGS:="-f -A ${PUBLIC_IPV4}/${PRIVATE_IPV4} -F -l ${PRIVATE_IPV4}/10.130.2.1 -m 20000 -M 30000 -s udp:127.0.0.1:7722 -d DBUG"}
 
 # Run rtpproxy
 exec /usr/bin/rtpproxy ${RTPPROXY_ARGS}
