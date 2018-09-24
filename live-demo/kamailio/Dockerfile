@@ -15,6 +15,12 @@ RUN apt-get update &&  apt-get install -y kamailio kamailio-json-modules kamaili
 RUN curl -qL -o /usr/bin/netdiscover https://github.com/CyCoreSystems/netdiscover/releases/download/v1.2.3/netdiscover.linux.amd64
 RUN chmod +x /usr/bin/netdiscover
 
+# Install sngrep
+RUN curl http://packages.irontec.com/public.key | apt-key add - && \
+    echo "deb http://packages.irontec.com/debian stretch main" > /etc/apt/sources.list.d/iron.list && \
+    apt-get update && \
+    apt-get -y install sngrep
+
 # Install config and templates
 ADD config /etc/kamailio
 ADD dispatcher.list /data/kamailio/dispatcher.list
