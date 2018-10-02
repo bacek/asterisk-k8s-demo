@@ -20,6 +20,8 @@ RUN apt-get update && \
         kamailio-extra-modules \
         kamailio-nth \
         kamailio-lua-modules \
+        lua-socket \
+        lua-json \
         sngrep && \
     apt-get clean
 
