@@ -20,9 +20,9 @@ if [ "$CLOUD" != "" ]; then
    PROVIDER="-provider ${CLOUD}"
 fi
 
-: ${PRIVATE_IPV4="$(netdiscover -field privatev4 ${PROVIDER})"}
-: ${PUBLIC_IPV4="$(netdiscover -field publicv4 ${PROVIDER})"}
-: ${PUBLIC_HOSTNAME="$(netdiscover -field hostname ${PROVIDER})"}
+: ${PRIVATE_IPV4:="$(netdiscover -field privatev4 ${PROVIDER})"}
+: ${PUBLIC_IPV4:="$(netdiscover -field publicv4 ${PROVIDER})"}
+: ${PUBLIC_HOSTNAME:="$(netdiscover -field hostname ${PROVIDER})"}
 
 # Build local configuration
 cat <<ENDHERE >/data/kamailio/local.k
