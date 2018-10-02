@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 MAINTAINER Seán C McCord "scm@cycoresys.com"
 
 RUN apt-get update && \
