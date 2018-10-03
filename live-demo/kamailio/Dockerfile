@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 MAINTAINER Seán C McCord "scm@cycoresys.com"
 
 RUN apt-get update && \
@@ -6,10 +6,11 @@ RUN apt-get update && \
     apt-get clean
 
 # Install kamailio and sngrep
-RUN curl -qO http://deb.kamailio.org/kamailiodebkey.gpg && \
-    apt-key add kamailiodebkey.gpg && \
-    echo "deb http://deb.kamailio.org/kamailio51 stretch main\ndeb-src http://deb.kamailio.org/kamailio50 stretch main" > /etc/apt/sources.list.d/kamailio.list && \
-    curl http://packages.irontec.com/public.key | apt-key add - && \
+# RUN curl -qO http://deb.kamailio.org/kamailiodebkey.gpg && \
+#    apt-key add kamailiodebkey.gpg && \
+#    echo "deb http://deb.kamailio.org/kamailio51 stretch main\ndeb-src http://deb.kamailio.org/kamailio50 stretch main" > /etc/apt/sources.list.d/kamailio.list
+
+RUN curl http://packages.irontec.com/public.key | apt-key add - && \
     echo "deb http://packages.irontec.com/debian stretch main" > /etc/apt/sources.list.d/iron.list
 
 RUN apt-get update && \
