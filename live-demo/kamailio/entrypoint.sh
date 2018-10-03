@@ -3,6 +3,7 @@
 # app, etc., _if_ we are not given a different
 # command.  If so, execute that command instead.
 set -e
+set -x
 
 # Default values
 : ${PID_FILE:="/var/run/kamailio.pid"}
