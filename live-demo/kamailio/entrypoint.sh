@@ -37,5 +37,5 @@ listen=udp:${PRIVATE_IPV4}:5080
 ENDHERE
 
 # Runs kamaillio, while shipping stderr/stdout to logstash
-exec /usr/sbin/kamailio $KAMAILIO_ARGS $*
+exec /usr/sbin/kamailio $KAMAILIO_ARGS # $*
 
