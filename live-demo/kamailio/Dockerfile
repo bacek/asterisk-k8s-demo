@@ -19,13 +19,13 @@ RUN apt-get update && \
         kamailio-json-modules \
         kamailio-utils-modules \
         kamailio-extra-modules \
-        kamailio-nth \
         kamailio-lua-modules \
         lua-socket \
         lua-json \
         sngrep && \
     apt-get clean
 
+        # kamailio-nth \
 # Download netdiscover
 RUN curl -qL -o /usr/bin/netdiscover https://github.com/CyCoreSystems/netdiscover/releases/download/v1.2.3/netdiscover.linux.amd64
 RUN chmod +x /usr/bin/netdiscover
