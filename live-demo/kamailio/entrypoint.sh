@@ -24,6 +24,8 @@ fi
 : ${PRIVATE_IPV4:="$(netdiscover -field privatev4 ${PROVIDER})"}
 : ${PUBLIC_IPV4:="$(netdiscover -field publicv4 ${PROVIDER})"}
 : ${PUBLIC_HOSTNAME:="$(netdiscover -field hostname ${PROVIDER})"}
+: ${PUBLIC_PORT:=5060}
+: ${PRIVATE_PORT:=5080}
 
 # Build local configuration
 cat <<ENDHERE >/data/kamailio/local.k
@@ -32,8 +34,8 @@ cat <<ENDHERE >/data/kamailio/local.k
 #!define PRIVATE_IP "${PRIVATE_IPV4}"
 #!subst "/PRIVATE_IP/${PRIVATE_IPV4}/"
 alias=${PUBLIC_IPV4} ${PUBLIC_HOSTNAME} ${SIP_HOSTNAME}
-listen=udp:${PRIVATE_IPV4}:5060 advertise ${PUBLIC_IPV4}:5060
-listen=udp:${PRIVATE_IPV4}:5080
+listen=udp:${PRIVATE_IPV4}:${PUBLIC_PORT} advertise ${PUBLIC_IPV4}:${PUBLIC_PORT}
+listen=udp:${PRIVATE_IPV4}:${PRIVATE_PORT}
 ENDHERE
 
 # Runs kamaillio, while shipping stderr/stdout to logstash
