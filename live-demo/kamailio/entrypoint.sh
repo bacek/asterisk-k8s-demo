@@ -35,7 +35,9 @@ cat <<ENDHERE >/data/kamailio/local.k
 #!subst "/PRIVATE_IP/${PRIVATE_IPV4}/"
 alias=${PUBLIC_IPV4} ${PUBLIC_HOSTNAME} ${SIP_HOSTNAME}
 listen=udp:${PRIVATE_IPV4}:${PUBLIC_PORT} advertise ${PUBLIC_IPV4}:${PUBLIC_PORT}
+listen=tcp:${PRIVATE_IPV4}:${PUBLIC_PORT} advertise ${PUBLIC_IPV4}:${PUBLIC_PORT}
 listen=udp:${PRIVATE_IPV4}:${PRIVATE_PORT}
+listen=tcp:${PRIVATE_IPV4}:${PRIVATE_PORT}
 ENDHERE
 
 # Runs kamaillio, while shipping stderr/stdout to logstash
