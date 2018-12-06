@@ -33,6 +33,12 @@ cat <<ENDHERE >/data/kamailio/local.k
 #!subst "/PUBLIC_IP/${PUBLIC_IPV4}/"
 #!define PRIVATE_IP "${PRIVATE_IPV4}"
 #!subst "/PRIVATE_IP/${PRIVATE_IPV4}/"
+
+#!define PUBLIC_PORT "${PUBLIC_PORT}"
+#!subst "/PUBLIC_PORT/${PUBLIC_PORT}/"
+#!define PRIVATE_PORT "${PRIVATE_PORT}"
+#!subst "/PRIVATE_PORT/${PRIVATE_PORT}/"
+
 alias=${PUBLIC_IPV4} ${PUBLIC_HOSTNAME} ${SIP_HOSTNAME}
 listen=udp:${PRIVATE_IPV4}:${PUBLIC_PORT} advertise ${PUBLIC_IPV4}:${PUBLIC_PORT}
 listen=tcp:${PRIVATE_IPV4}:${PUBLIC_PORT} advertise ${PUBLIC_IPV4}:${PUBLIC_PORT}
