@@ -22,6 +22,8 @@ RUN apt-get update && \
         kamailio-lua-modules \
         lua-socket \
         lua-json \
+        vim \
+        nmap \
         sngrep && \
     apt-get clean
 
